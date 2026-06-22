@@ -35,16 +35,36 @@
 		<link rel="stylesheet" href="css/fontawesome.all.min.css">
 		<link rel="stylesheet"
 	        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 
     <style>
+        :root {
+            --paper: #f6f4ef;
+            --paper-strong: #ebe7dc;
+            --ink: #171717;
+            --muted: #6f706f;
+            --line: rgba(23, 23, 23, 0.13);
+            --card: rgba(255, 255, 255, 0.82);
+            --accent: #315f55;
+            --accent-soft: #e0ebe4;
+            --shadow: 0 24px 70px rgba(28, 31, 30, 0.12);
+            --sans: "Inter", "Lato", Arial, sans-serif;
+            --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        }
+
         html {
             scroll-behavior: smooth;
+            background: var(--paper);
         }
 
         body {
             margin: 0;
             width: 100%;
-            background: #fff;
+            background: var(--paper);
+            color: var(--ink);
+            font-family: var(--sans);
         }
 
         .teaser-hero {
@@ -54,6 +74,63 @@
             overflow: hidden;
             color: #fff;
             background: #080808;
+        }
+
+        .site-nav {
+            position: absolute;
+            z-index: 3;
+            top: 22px;
+            left: 50%;
+            width: min(1180px, calc(100% - 40px));
+            min-height: 52px;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 18px;
+            padding: 8px 10px 8px 18px;
+            border: 1px solid rgba(255, 255, 255, 0.26);
+            border-radius: 999px;
+            background: rgba(11, 12, 12, 0.26);
+            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+        }
+
+        .site-brand,
+        .site-nav a {
+            color: #fff;
+            font-family: var(--sans);
+            font-size: 13px;
+            text-decoration: none;
+            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.32);
+        }
+
+        .site-brand {
+            font-weight: 700;
+        }
+
+        .site-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .site-nav-links a {
+            padding: 8px 12px;
+            border-radius: 999px;
+            transition: background 180ms ease, color 180ms ease;
+        }
+
+        .site-nav-links a:hover,
+        .site-nav-links a:focus {
+            color: #111;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .site-nav-cta {
+            color: #111 !important;
+            background: rgba(255, 255, 255, 0.92);
         }
 
         .teaser-hero video {
@@ -68,7 +145,9 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.18) 45%, rgba(0, 0, 0, 0.62) 100%);
+            background:
+                linear-gradient(180deg, rgba(0, 0, 0, 0.34) 0%, rgba(0, 0, 0, 0.12) 42%, rgba(0, 0, 0, 0.72) 100%),
+                linear-gradient(90deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.04) 58%);
             pointer-events: none;
         }
 
@@ -79,49 +158,65 @@
             min-height: 100svh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 72px 28px 80px;
-            text-align: center;
-            text-shadow: 0 2px 22px rgba(0, 0, 0, 0.75);
+            justify-content: flex-end;
+            align-items: flex-start;
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 128px 24px 88px;
+            text-align: left;
+            text-shadow: 0 2px 24px rgba(0, 0, 0, 0.72);
         }
 
         .teaser-hero-title {
-            max-width: 1120px;
+            max-width: 980px;
             margin: 0;
-            font-size: 52px;
-            line-height: 1.12;
-            font-weight: 700;
+            font-family: var(--serif);
+            font-size: 88px;
+            line-height: 0.94;
+            font-weight: 600;
             letter-spacing: 0;
         }
 
         .teaser-hero-title span {
             display: block;
-            margin-bottom: 12px;
-            font-size: 72px;
-            line-height: 1;
+            margin-bottom: 4px;
+            font-family: var(--sans);
+            font-size: 16px;
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
         }
 
         .teaser-hero-venue {
-            margin: 22px 0 0;
-            font-size: 20px;
-            font-weight: 700;
+            margin: 20px 0 0;
+            padding: 7px 12px;
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            font-family: var(--sans);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .teaser-hero-authors {
-            max-width: 860px;
-            margin: 26px 0 0;
+            max-width: 900px;
+            margin: 24px 0 0;
             padding: 0;
             list-style: none;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px 22px;
+            justify-content: flex-start;
+            gap: 9px 20px;
         }
 
         .teaser-hero-authors li,
         .teaser-hero-affiliation {
-            font-size: 18px;
+            color: rgba(255, 255, 255, 0.88);
+            font-family: var(--sans);
+            font-size: 15px;
         }
 
         .teaser-hero-authors a {
@@ -136,71 +231,384 @@
         }
 
         .teaser-hero-affiliation {
-            margin-top: 16px;
+            margin: 12px 0 0;
         }
 
         .teaser-scroll-cue {
             position: absolute;
             z-index: 2;
             left: 50%;
-            bottom: 26px;
-            width: 42px;
-            height: 42px;
+            bottom: 24px;
+            width: 44px;
+            height: 44px;
             transform: translateX(-50%);
             border: 1px solid rgba(255, 255, 255, 0.72);
             border-radius: 50%;
             color: #fff;
             font-size: 26px;
-            line-height: 38px;
+            line-height: 40px;
             text-align: center;
             text-decoration: none;
             background: rgba(0, 0, 0, 0.18);
+            transition: transform 180ms ease, background 180ms ease;
         }
 
         .teaser-scroll-cue:hover,
         .teaser-scroll-cue:focus {
             color: #fff;
             background: rgba(0, 0, 0, 0.34);
+            transform: translateX(-50%) translateY(3px);
         }
 
-        #main {
-            padding: 5% 5% 0;
+        .site-page {
+            background: var(--paper);
+        }
+
+        .page-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 84px 24px 104px;
+        }
+
+        .quick-actions {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 78px;
+        }
+
+        .pill-button,
+        .pill-button:visited {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            min-height: 42px;
+            padding: 0 18px;
+            border: 1px solid var(--line);
+            border-radius: 999px;
+            color: var(--ink);
+            background: rgba(255, 255, 255, 0.64);
+            box-shadow: 0 10px 32px rgba(28, 31, 30, 0.07);
+            font-family: var(--sans);
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+        }
+
+        .pill-button:hover,
+        .pill-button:focus {
+            color: var(--ink);
+            border-color: rgba(49, 95, 85, 0.42);
+            background: #fff;
+            transform: translateY(-2px);
+        }
+
+        .section-label {
+            margin: 0 0 14px;
+            color: var(--accent);
+            font-family: var(--sans);
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .paper-section {
+            margin: 0 0 92px;
+        }
+
+        .section-heading {
+            margin: 0;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 48px;
+            font-weight: 600;
+            line-height: 1.02;
+            letter-spacing: 0;
+        }
+
+        .section-copy,
+        .site-page p,
+        .site-page a,
+        .site-page li {
+            font-family: var(--sans);
+        }
+
+        .section-copy,
+        .site-page p {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.76;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+            gap: 28px;
+            align-items: stretch;
+        }
+
+        .editorial-card,
+        .media-card,
+        .image-panel,
+        .bibtex-card {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--card);
+            box-shadow: var(--shadow);
+        }
+
+        .editorial-card {
+            padding: 42px;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+
+        .stat-card {
+            padding: 24px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.56);
+        }
+
+        .stat-card strong {
+            display: block;
+            margin-bottom: 6px;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 30px;
+            font-weight: 600;
+        }
+
+        .stat-card span {
+            color: var(--muted);
+            font-family: var(--sans);
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .media-card {
+            overflow: hidden;
+            transition: transform 200ms ease, box-shadow 200ms ease;
+        }
+
+        .media-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 28px 80px rgba(28, 31, 30, 0.16);
+        }
+
+        .media-frame {
+            position: relative;
+            padding-top: 56.25%;
+            background: #111;
+        }
+
+        .media-frame iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .media-card-body {
+            padding: 22px 24px 26px;
+            text-align: left;
+        }
+
+        .media-card h3,
+        .image-panel h3 {
+            margin: 0;
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.08;
+        }
+
+        .media-card p,
+        .image-panel p {
+            margin: 12px 0 0;
+            font-size: 14px;
+            line-height: 1.65;
+        }
+
+        .image-stack {
+            display: grid;
+            gap: 26px;
+        }
+
+        .image-panel {
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .image-panel img {
+            display: block;
+            width: 100%;
+            height: auto;
+            background: var(--paper-strong);
+        }
+
+        .image-panel-body {
+            padding: 26px 30px 30px;
+        }
+
+        .wide-callout {
+            display: grid;
+            grid-template-columns: 0.82fr 1.18fr;
+            gap: 28px;
+            align-items: center;
+            padding: 26px;
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #111;
+            color: #fff;
+            box-shadow: var(--shadow);
+        }
+
+        .wide-callout img {
+            width: 100%;
+            border-radius: 6px;
+        }
+
+        .wide-callout .section-label,
+        .wide-callout p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .wide-callout .section-heading {
+            color: #fff;
+        }
+
+        .bibtex-card {
+            padding: 30px;
+            overflow-x: auto;
+            text-align: left;
+        }
+
+        .bibtex-card pre {
+            margin: 0;
+            color: #252525;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+            font-size: 13px;
+            line-height: 1.65;
+            white-space: pre-wrap;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 560ms ease, transform 560ms ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         @media (max-width: 767px) {
+            .site-nav {
+                top: 14px;
+                width: calc(100% - 28px);
+                padding-left: 16px;
+            }
+
+            .site-nav-links a:not(.site-nav-cta) {
+                display: none;
+            }
+
             .teaser-hero-content {
-                padding: 56px 18px 74px;
+                padding: 112px 18px 78px;
             }
 
             .teaser-hero-title {
-                font-size: 34px;
+                font-size: 52px;
+                line-height: 0.98;
             }
 
             .teaser-hero-title span {
-                font-size: 44px;
+                font-size: 13px;
             }
 
             .teaser-hero-venue {
-                font-size: 17px;
+                font-size: 12px;
             }
 
             .teaser-hero-authors {
-                gap: 8px 14px;
+                gap: 8px 13px;
             }
 
             .teaser-hero-authors li,
             .teaser-hero-affiliation {
-                font-size: 15px;
+                font-size: 14px;
+            }
+
+            .page-shell {
+                padding: 56px 18px 72px;
+            }
+
+            .quick-actions {
+                justify-content: flex-start;
+                margin-bottom: 54px;
+            }
+
+            .intro-grid,
+            .media-grid,
+            .wide-callout {
+                grid-template-columns: 1fr;
+            }
+
+            .editorial-card,
+            .bibtex-card {
+                padding: 26px;
+            }
+
+            .paper-section {
+                margin-bottom: 66px;
+            }
+
+            .section-heading {
+                font-size: 36px;
+            }
+
+            .wide-callout {
+                padding: 18px;
             }
         }
 
         @media (max-width: 420px) {
             .teaser-hero-title {
-                font-size: 28px;
+                font-size: 42px;
             }
 
-            .teaser-hero-title span {
-                font-size: 38px;
+            .section-heading {
+                font-size: 32px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
             }
         }
     </style>
@@ -232,6 +640,16 @@
 
 <body>
     <section class="teaser-hero" aria-label="DANTE-W teaser video">
+        <nav class="site-nav" aria-label="Primary navigation">
+            <a class="site-brand" href="#">DANTE-W</a>
+            <div class="site-nav-links">
+                <a href="#demos">Demos</a>
+                <a href="#abstract">Abstract</a>
+                <a href="#method">Method</a>
+                <a href="#dataset">Dataset</a>
+                <a class="site-nav-cta" href="https://arxiv.org/abs/2403.19517">arXiv</a>
+            </div>
+        </nav>
         <video autoplay loop muted playsinline preload="auto">
             <source src="videos/teaser/teaser.mp4" type="video/mp4">
         </video>
@@ -253,171 +671,163 @@
         <a class="teaser-scroll-cue" href="#main" aria-label="Continue to page content">&#8595;</a>
     </section>
 
-    <div class="container-lg text-center" style="max-width: 1500px; margin: auto;" id="main">
-    <!-- <div class="container" id="main"> -->
-            <div class="row text-center">
-					
-			    <span class="link-block">
-                <a href="https://arxiv.org/abs/2403.19517"
-                   class="external-link button is-normal is-rounded is-dark">
-                   <span class="icon">
-                      <i class="ai ai-arxiv"></i>
-                   </span>
-                   <span>arXiv</span>
+    <main class="site-page" id="main">
+        <div class="page-shell">
+            <div class="quick-actions reveal">
+                <a class="pill-button" href="https://arxiv.org/abs/2403.19517">
+                    <i class="ai ai-arxiv"></i>
+                    <span>arXiv</span>
                 </a>
-              </span>
-
-              <span class="link-block">
-                <a href="https://github.com/THU-luvision/XScale-NVS"
-                   class="external-link button is-normal is-rounded is-dark">
-                   <span class="icon">
-                      <i class="fa-solid fa-square-terminal"></i>
-                   </span>
-                   <span>Code</span>
+                <a class="pill-button" href="https://github.com/THU-luvision/XScale-NVS">
+                    <i class="fa-solid fa-square-terminal"></i>
+                    <span>Code</span>
                 </a>
-              </span>
-			</div>
+            </div>
 
-        <!-- <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <video id="teaser-video-ours" width="100%" autoplay loop muted controls>
-                  <source src="videos/teaser/final.mp4" type="video/mp4" />
-                </video>
-			</div>
-        </div> -->
+            <section class="paper-section intro-grid reveal" id="abstract">
+                <article class="editorial-card">
+                    <p class="section-label">Abstract</p>
+                    <h2 class="section-heading">Neural texturing for detailed scenes in the wild.</h2>
+                    <p class="section-copy">
+                        We propose XScale-NVS for high-fidelity cross-scale novel view synthesis of real-world large-scale scenes. Existing scene representations have limitations in capturing cross-scale details. Representations based on explicit surface suffer from discretization resolution or UV distortion, while implicit volumetric representations lack scalability for large scenes due to the dispersed weight distribution and surface ambiguity.
+                    </p>
+                    <p class="section-copy">
+                        Our hash featurized manifold couples a surface-focused representation with deferred neural rendering, concentrating features on a 2D manifold to represent highly detailed contents independent of discretization resolution.
+                    </p>
+                </article>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    🎥 Neural Rendering the Tengwang Pavilion
-                </h3>
-                <div class="text-center">
-                    <div style="position:relative;padding-top:56.25%;">
-                        <iframe src="https://www.youtube.com/embed/x06QnYyIiGQ?si=7xZHqTFi5mMwQViO" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                <aside class="stat-grid" aria-label="Project highlights">
+                    <div class="stat-card">
+                        <strong>Cross-scale</strong>
+                        <span>High-fidelity rendering from broad structures to fine texture.</span>
                     </div>
-                </div>
-                <p class="text-justify" style="text-align: center;">It is recommonded to view the demo in <b>4K</b> resolution.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    🎥 Relit the Tengwang Pavilion
-                </h3>
-                <div class="text-center">
-                    <div style="position:relative;padding-top:56.25%;">
-                        <iframe src="https://www.youtube.com/embed/_MNgCd5zuWo?si=fwHxpSTEcgmc0rEL" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    <div class="stat-card">
+                        <strong>Surface-first</strong>
+                        <span>Hash features are concentrated on manifolds instead of dispersed through volume samples.</span>
                     </div>
+                    <div class="stat-card">
+                        <strong>GigaNVS</strong>
+                        <span>A real-shot benchmark for square-kilometer scenes with millimeter-level details.</span>
+                    </div>
+                </aside>
+            </section>
+
+            <section class="paper-section reveal" id="demos">
+                <p class="section-label">Demos</p>
+                <h2 class="section-heading">Move through light, structure, and scale.</h2>
+                <div class="media-grid">
+                    <article class="media-card">
+                        <div class="media-frame">
+                            <iframe src="https://www.youtube.com/embed/x06QnYyIiGQ?si=7xZHqTFi5mMwQViO" title="Neural rendering demo" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-card-body">
+                            <h3>Neural Rendering the Tengwang Pavilion</h3>
+                            <p>Recommended viewing in 4K resolution to inspect the high-frequency details.</p>
+                        </div>
+                    </article>
+
+                    <article class="media-card">
+                        <div class="media-frame">
+                            <iframe src="https://www.youtube.com/embed/_MNgCd5zuWo?si=fwHxpSTEcgmc0rEL" title="Relighting demo" allowfullscreen></iframe>
+                        </div>
+                        <div class="media-card-body">
+                            <h3>Relit the Tengwang Pavilion</h3>
+                            <p>Relighting results highlight how the representation preserves geometry-aware appearance.</p>
+                        </div>
+                    </article>
                 </div>
-                <!-- <p class="text-justify" style="text-align: center;">Relighting.</p> -->
-            </div>
-        </div>
+            </section>
 
+            <section class="paper-section reveal" id="method">
+                <p class="section-label">Method</p>
+                <h2 class="section-heading">Surface manifold unleashes volumetric hash encoding.</h2>
+                <div class="image-stack">
+                    <article class="image-panel">
+                        <img src="img/method.jpg" alt="Method overview diagram">
+                        <div class="image-panel-body">
+                            <h3>Clean features on the surface</h3>
+                            <p>
+                                UV-based featurizations can disorganize feature distribution, surface-based grids are limited by discretization, and volumetric featurizations disperse weights during volume rendering. Our method uses hash encoding with rasterization to propagate clean, multi-view consistent signals to surface features.
+                            </p>
+                        </div>
+                    </article>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Abstract
-                </h3>
-                <p class="text-justify">
-                    We propose XScale-NVS for high-fidelity cross-scale novel view synthesis of real-world large-scale scenes. Existing scene representations have limitations in capturing cross-scale details. Representations based on explicit surface suffer from discretization resolution or UV distortion, while implicit volumetric representations lack scalability for large scenes due to the dispersed weight distribution and surface ambiguity. In light of the above challenges, we introduce hash featurized manifold, a novel hash-based featurization coupled with a deferred neural rendering framework. This approach fully unlocks the expressivity of the representation by explicitly concentrating the hash entries on the 2D manifold, thus effectively representing highly detailed contents independent of the discretization resolution. We also introduce a novel dataset, namely GigaNVS, to benchmark cross-scale, high-resolution novel view synthesis of real-world large-scale scenes. Our method significantly outperforms competing baselines on various real-world scenes, yielding an average LPIPS that is 40% lower than prior state-of-the-art on the challenging GigaNVS benchmark.
-                </p>
-            </div>
-        </div>
-        <br>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3> Surface manifold unleashes the power of volumetric hash encoding</h3><br>
-                <!-- <h3>
-				  <b> <font color="#118ab2">Recon</font><font color="#ef486e">Fusion</font></b> = <font color="#118ab2">3D Reconstruction</font>  + <font color="#ef486e">Diffusion Prior</font>
-                </h3> -->
-                <image src="img/method.jpg" width=100% style="display: block; margin: auto;"></image>
-                <p class="text-justify">
-                    (a) UV-based featurizations tend to disorganize the feature distribution due to distortions in surface parametrization. (b) Existing 3D-surface-based featurizations fail to express the sub-primitive-scale intricate details given the limited discretization resolution. (c) Volumetric featurizations inevitably yield a dispersed weight distribution during volume rendering, where many multi-view inconsistent yet highly weighted samples ambiguate surface colour and deteriorate surface features with inconsistent colour gradient. (d) Our method leverages hash encoding to unlock the dependence of featuremetric resolution on discretization resolution, and utilizes rasterization to fully unleash the expressivity of volumetric hash encoding by propagating clean and multi-view consistent signals to surface features.
-                </p>
-            </div>
-        </div><br><br>
-
-	    <div class="row">
-		<div class="col-md-8 col-md-offset-2">
-		<!-- <h3> XScale-NVS enables high-quality cross-scale neural rendering</h3><br> -->
-        <h3> Cross-scale neural rendering empowered by hash featurized manifold</h3><br>
-                <!-- <video id="co3d-grid" width="100%" autoplay loop muted controls>
-                  <source src="videos/results/co3d_3x5.mp4" type="video/mp4" />
-                </video> -->
-                <image src="img/teaser.png" width=100% style="display: block; margin: auto;"></image>
-                <br>
-                <image src="img/cross_scale.jpg" width=100% style="display: block; margin: auto;"></image>
-                <br>
-                    <!-- <p class="text-justify" style="text-align: center;">We address the challenging task of NVS for large-scale in-the-wild scenes. Hash featurized manifold better exploits the imagery with unstructured capture viewpoints and scale variations, representing structural and textural details at any scale, which may have the potential to replace traditional UV textures and benefit various applications.</p> -->
-                    <p class="text-justify">We address the challenging task of NVS for large-scale in-the-wild scenes. Hash featurized manifold better exploits the imagery with unstructured capture viewpoints and scale variations, representing structural and textural details at any scale, which may have the potential to replace traditional UV textures and benefit various applications. Please zoom-in to see our high-quality details.</p>
-                <!-- <br> -->
-                    <!-- <p class="text-justify">Compared to recent state-of-the-arts, our method synthesizes novel views with unprecedented levels of realism. Please zoom in to see the high-quality details.</p> -->
-                    
-            </div>
-        </div>
-
-        <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-        <h3> The GigaNVS dataset (Coming soon)</h3><br>
-                <!-- <video id="co3d-grid" width="100%" autoplay loop muted controls>
-                    <source src="videos/results/co3d_3x5.mp4" type="video/mp4" />
-                </video> -->
-                <image src="img/dataset.jpg" width=100% style="display: block; margin: auto;"></image>
-
-                    <p class="text-justify">Characterized by the real-shot, cross-scale, high-resolution imagery, GigaNVS captures millimeter-level details from scenes with square-kilometer-level areas.</p>
-            </div>
-        </div>
-
-        <br>
-        </div>
-        <br>
-        <br>
-
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Citation
-                </h3>
-                <div class="form-group col-md-10 col-md-offset-1">
-				  <p class="text-justify">
-                    <!-- <textarea id="bibtex" class="form-control" readonly> -->
-                        <!-- @misc{wang2024xscalenvs, </br>
-                            title={XScale-NVS: Cross-Scale Novel View Synthesis with Hash Featurized Manifold}, </br>
-                            author={Guangyu Wang and Jinzhi Zhang and Fan Wang and Ruqi Huang and Lu Fang}, </br>
-                            year={2024}, </br>
-                            eprint={2403.19517}, </br>
-                            archivePrefix={arXiv}, </br>
-                            primaryClass={cs.CV}
-                        } -->
-                        @InProceedings{Wang_2024_CVPR, </br>
-                            author    = {Wang, Guangyu and Zhang, Jinzhi and Wang, Fan and Huang, Ruqi and Fang, Lu}, </br>
-                            title     = {XScale-NVS: Cross-Scale Novel View Synthesis with Hash Featurized Manifold}, </br>
-                            booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, </br>
-                            month     = {June}, </br>
-                            year      = {2024}, </br>
-                            pages     = {21029-21039}
-                        }
-                    <!-- </textarea> -->
-                   </p>
+                    <article class="image-panel">
+                        <img src="img/teaser.png" alt="Cross-scale rendering teaser">
+                        <div class="image-panel-body">
+                            <h3>Cross-scale neural rendering</h3>
+                            <p>
+                                Hash featurized manifold better exploits unstructured capture viewpoints and scale variations, representing structural and textural details across different viewing scales.
+                            </p>
+                        </div>
+                    </article>
                 </div>
-            </div>
-        </div>
+            </section>
 
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2">
-                <!-- <h3>
-                    Acknowledgements
-                </h3> -->
-                <!-- <p class="text-justify"> -->
-                <!-- We would like to thank Arthur Brussee, Ricardo Martin-Brualla, Rick Szeliski, Peter Hedman, Jason Baldridge, and Angjoo Kanazawa for their valuable contributions in discussing the project and reviewing the manuscript, and Zhicheng Wang for setting up some of the data loaders necessary for our diffusion model training pipeline. We are grateful to Randy Persaud and Henna Nandwani for infrastructure support. -->
-                    <!-- <br><br> -->
-                <!-- The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>. -->
-                <!-- </p> -->
-            </div>
+            <section class="paper-section wide-callout reveal" id="dataset">
+                <img src="img/dataset.jpg" alt="GigaNVS dataset examples">
+                <div>
+                    <p class="section-label">Dataset</p>
+                    <h2 class="section-heading">The GigaNVS dataset is coming soon.</h2>
+                    <p>
+                        Characterized by real-shot, cross-scale, high-resolution imagery, GigaNVS captures millimeter-level details from scenes with square-kilometer-level areas.
+                    </p>
+                </div>
+            </section>
+
+            <section class="paper-section reveal">
+                <p class="section-label">Results</p>
+                <h2 class="section-heading">High-quality details remain visible when the viewpoint changes.</h2>
+                <article class="image-panel">
+                    <img src="img/cross_scale.jpg" alt="Cross-scale qualitative comparison">
+                    <div class="image-panel-body">
+                        <p>
+                            Compared to common neural scene representations, the manifold-centered representation keeps fine geometry and appearance details stable across scale changes. Please zoom in to inspect the quality.
+                        </p>
+                    </div>
+                </article>
+            </section>
+
+            <section class="paper-section reveal" id="citation">
+                <p class="section-label">Citation</p>
+                <h2 class="section-heading">Reference</h2>
+                <div class="bibtex-card">
+<pre>@InProceedings{Wang_2024_CVPR,
+  author    = {Wang, Guangyu and Zhang, Jinzhi and Wang, Fan and Huang, Ruqi and Fang, Lu},
+  title     = {XScale-NVS: Cross-Scale Novel View Synthesis with Hash Featurized Manifold},
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  month     = {June},
+  year      = {2024},
+  pages     = {21029-21039}
+}</pre>
+                </div>
+            </section>
         </div>
-    </div>
+    </main>
+
+    <script>
+        document.querySelectorAll(".reveal").forEach(function (element) {
+            element.classList.add("is-visible");
+        });
+
+        if ("IntersectionObserver" in window) {
+            document.querySelectorAll(".reveal").forEach(function (element) {
+                element.classList.remove("is-visible");
+            });
+
+            var observer = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("is-visible");
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            document.querySelectorAll(".reveal").forEach(function (element) {
+                observer.observe(element);
+            });
+        }
+    </script>
 </body>
 </html>
