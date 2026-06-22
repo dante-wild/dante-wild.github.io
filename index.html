@@ -1,0 +1,286 @@
+
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>XScale-NVS</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:image" content="https://reconfusion.github.io/img/overview_combined.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1711">
+    <meta property="og:image:height" content="576">
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://xscalenvs.github.io/"/>
+    <meta property="og:title" content="DANTE-W: Diffuse Albedo Neural Texturing in the Wild" />
+    <meta property="og:description" content="We propose XScale-NVS for high-fidelity cross-scale novel view synthesis of real-world large-scale scenes. Existing scene representations have limitations in capturing cross-scale details. Representations based on explicit surface suffer from discretization resolution or UV distortion, while implicit volumetric representations lack scalability for large scenes due to the dispersed weight distribution and surface ambiguity. In light of the above challenges, we introduce hash featurized manifold, a novel hash-based featurization coupled with a deferred neural rendering framework. This approach fully unlocks the expressivity of the representation by explicitly concentrating the hash entries on the 2D manifold, thus effectively representing highly detailed contents independent of the discretization resolution. We also introduce a novel dataset, namely GigaNVS, to benchmark cross-scale, high-resolution novel view synthesis of real-world large-scale scenes. Our method significantly outperforms competing baselines on various real-world scenes, yielding an average LPIPS that is 40% lower than prior state-of-the-art on the challenging GigaNVS benchmark."/>
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="XScale-NVS: Cross-Scale Novel View Synthesis with Hash Featurized Manifold" />
+    <meta name="twitter:description" content="We propose XScale-NVS for high-fidelity cross-scale novel view synthesis of real-world large-scale scenes. Existing scene representations have limitations in capturing cross-scale details. Representations based on explicit surface suffer from discretization resolution or UV distortion, while implicit volumetric representations lack scalability for large scenes due to the dispersed weight distribution and surface ambiguity. In light of the above challenges, we introduce hash featurized manifold, a novel hash-based featurization coupled with a deferred neural rendering framework. This approach fully unlocks the expressivity of the representation by explicitly concentrating the hash entries on the 2D manifold, thus effectively representing highly detailed contents independent of the discretization resolution. We also introduce a novel dataset, namely GigaNVS, to benchmark cross-scale, high-resolution novel view synthesis of real-world large-scale scenes. Our method significantly outperforms competing baselines on various real-world scenes, yielding an average LPIPS that is 40% lower than prior state-of-the-art on the challenging GigaNVS benchmark."/>
+    <meta name="twitter:image" content="https://reconfusion.github.io/img/overview_combined.png" />
+
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💠</text></svg>">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="css/fontawesome.all.min.css">
+	<link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+
+	<!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ZERS5BVPS"></script>
+  <script>
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+
+	gtag('config', 'G-8ZERS5BVPS');
+  </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+	<script defer src="js/fontawesome.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
+    <script src="js/app.js"></script>
+    <script src="js/synced_video_selector.js"></script>
+
+</head>
+
+<body style="padding: 5%; width: 100%">
+    <div class="container-lg text-center" style="max-width: 1500px; margin: auto;" id="main">
+    <!-- <div class="container" id="main"> -->
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                💠<b>DANTE-W</b>: Diffuse Albedo Neural Texturing in the Wild</br> 
+                <small>
+                    ECCV 2026
+                </small>
+            </h2>
+        </div>
+        <div class="row text-center">
+<div class="col-md-3">
+    </div>
+            <div class="col-md-6 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="">
+                            Guangyu Wang
+                        </a><sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="">
+                            Jinzhi Zhang
+                        </a><sup>1</sup>
+                    </li>
+                    <li>
+                        <a href="">
+                            Fan Wang
+                        </a><sup>2</sup>
+                    </li>
+                    <li>
+                        <a href="https://rqhuang88.github.io/">
+                            Ruqi Huang
+                        </a><sup>1</sup>
+                    </li>
+                    <wbr>
+                    <li>
+                        <a href="http://www.luvision.net/">
+                            Lu Fang
+                        </a><sup>1</sup>
+                    </li>
+                    <!-- </br>Google -->
+                </ul>
+            </div>
+<div class="col-md-3">
+    </div>
+            <div class="col-md-12 text-center">
+                <sup>1</sup>Tsinghua University, &nbsp <sup>2</sup>Alibaba Group
+
+            </div>
+            <!-- <div class="col-md-12 text-center">
+                * equal contribution
+            </div> -->
+            </div>
+
+
+            <div class="row text-center">
+					
+			    <span class="link-block">
+                <a href="https://arxiv.org/abs/2403.19517"
+                   class="external-link button is-normal is-rounded is-dark">
+                   <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                   </span>
+                   <span>arXiv</span>
+                </a>
+              </span>
+
+              <span class="link-block">
+                <a href="https://github.com/THU-luvision/XScale-NVS"
+                   class="external-link button is-normal is-rounded is-dark">
+                   <span class="icon">
+                      <i class="fa-solid fa-square-terminal"></i>
+                   </span>
+                   <span>Code</span>
+                </a>
+              </span>
+			</div>
+
+        <!-- <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <video id="teaser-video-ours" width="100%" autoplay loop muted controls>
+                  <source src="videos/teaser/final.mp4" type="video/mp4" />
+                </video>
+			</div>
+        </div> -->
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    🎥 Neural Rendering the Tengwang Pavilion
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/x06QnYyIiGQ?si=7xZHqTFi5mMwQViO" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+                <p class="text-justify" style="text-align: center;">It is recommonded to view the demo in <b>4K</b> resolution.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    🎥 Relit the Tengwang Pavilion
+                </h3>
+                <div class="text-center">
+                    <div style="position:relative;padding-top:56.25%;">
+                        <iframe src="https://www.youtube.com/embed/_MNgCd5zuWo?si=fwHxpSTEcgmc0rEL" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
+                    </div>
+                </div>
+                <!-- <p class="text-justify" style="text-align: center;">Relighting.</p> -->
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <p class="text-justify">
+                    We propose XScale-NVS for high-fidelity cross-scale novel view synthesis of real-world large-scale scenes. Existing scene representations have limitations in capturing cross-scale details. Representations based on explicit surface suffer from discretization resolution or UV distortion, while implicit volumetric representations lack scalability for large scenes due to the dispersed weight distribution and surface ambiguity. In light of the above challenges, we introduce hash featurized manifold, a novel hash-based featurization coupled with a deferred neural rendering framework. This approach fully unlocks the expressivity of the representation by explicitly concentrating the hash entries on the 2D manifold, thus effectively representing highly detailed contents independent of the discretization resolution. We also introduce a novel dataset, namely GigaNVS, to benchmark cross-scale, high-resolution novel view synthesis of real-world large-scale scenes. Our method significantly outperforms competing baselines on various real-world scenes, yielding an average LPIPS that is 40% lower than prior state-of-the-art on the challenging GigaNVS benchmark.
+                </p>
+            </div>
+        </div>
+        <br>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3> Surface manifold unleashes the power of volumetric hash encoding</h3><br>
+                <!-- <h3>
+				  <b> <font color="#118ab2">Recon</font><font color="#ef486e">Fusion</font></b> = <font color="#118ab2">3D Reconstruction</font>  + <font color="#ef486e">Diffusion Prior</font>
+                </h3> -->
+                <image src="img/method.jpg" width=100% style="display: block; margin: auto;"></image>
+                <p class="text-justify">
+                    (a) UV-based featurizations tend to disorganize the feature distribution due to distortions in surface parametrization. (b) Existing 3D-surface-based featurizations fail to express the sub-primitive-scale intricate details given the limited discretization resolution. (c) Volumetric featurizations inevitably yield a dispersed weight distribution during volume rendering, where many multi-view inconsistent yet highly weighted samples ambiguate surface colour and deteriorate surface features with inconsistent colour gradient. (d) Our method leverages hash encoding to unlock the dependence of featuremetric resolution on discretization resolution, and utilizes rasterization to fully unleash the expressivity of volumetric hash encoding by propagating clean and multi-view consistent signals to surface features.
+                </p>
+            </div>
+        </div><br><br>
+
+	    <div class="row">
+		<div class="col-md-8 col-md-offset-2">
+		<!-- <h3> XScale-NVS enables high-quality cross-scale neural rendering</h3><br> -->
+        <h3> Cross-scale neural rendering empowered by hash featurized manifold</h3><br>
+                <!-- <video id="co3d-grid" width="100%" autoplay loop muted controls>
+                  <source src="videos/results/co3d_3x5.mp4" type="video/mp4" />
+                </video> -->
+                <image src="img/teaser.png" width=100% style="display: block; margin: auto;"></image>
+                <br>
+                <image src="img/cross_scale.jpg" width=100% style="display: block; margin: auto;"></image>
+                <br>
+                    <!-- <p class="text-justify" style="text-align: center;">We address the challenging task of NVS for large-scale in-the-wild scenes. Hash featurized manifold better exploits the imagery with unstructured capture viewpoints and scale variations, representing structural and textural details at any scale, which may have the potential to replace traditional UV textures and benefit various applications.</p> -->
+                    <p class="text-justify">We address the challenging task of NVS for large-scale in-the-wild scenes. Hash featurized manifold better exploits the imagery with unstructured capture viewpoints and scale variations, representing structural and textural details at any scale, which may have the potential to replace traditional UV textures and benefit various applications. Please zoom-in to see our high-quality details.</p>
+                <!-- <br> -->
+                    <!-- <p class="text-justify">Compared to recent state-of-the-arts, our method synthesizes novel views with unprecedented levels of realism. Please zoom in to see the high-quality details.</p> -->
+                    
+            </div>
+        </div>
+
+        <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+        <h3> The GigaNVS dataset (Coming soon)</h3><br>
+                <!-- <video id="co3d-grid" width="100%" autoplay loop muted controls>
+                    <source src="videos/results/co3d_3x5.mp4" type="video/mp4" />
+                </video> -->
+                <image src="img/dataset.jpg" width=100% style="display: block; margin: auto;"></image>
+
+                    <p class="text-justify">Characterized by the real-shot, cross-scale, high-resolution imagery, GigaNVS captures millimeter-level details from scenes with square-kilometer-level areas.</p>
+            </div>
+        </div>
+
+        <br>
+        </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Citation
+                </h3>
+                <div class="form-group col-md-10 col-md-offset-1">
+				  <p class="text-justify">
+                    <!-- <textarea id="bibtex" class="form-control" readonly> -->
+                        <!-- @misc{wang2024xscalenvs, </br>
+                            title={XScale-NVS: Cross-Scale Novel View Synthesis with Hash Featurized Manifold}, </br>
+                            author={Guangyu Wang and Jinzhi Zhang and Fan Wang and Ruqi Huang and Lu Fang}, </br>
+                            year={2024}, </br>
+                            eprint={2403.19517}, </br>
+                            archivePrefix={arXiv}, </br>
+                            primaryClass={cs.CV}
+                        } -->
+                        @InProceedings{Wang_2024_CVPR, </br>
+                            author    = {Wang, Guangyu and Zhang, Jinzhi and Wang, Fan and Huang, Ruqi and Fang, Lu}, </br>
+                            title     = {XScale-NVS: Cross-Scale Novel View Synthesis with Hash Featurized Manifold}, </br>
+                            booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)}, </br>
+                            month     = {June}, </br>
+                            year      = {2024}, </br>
+                            pages     = {21029-21039}
+                        }
+                    <!-- </textarea> -->
+                   </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <!-- <h3>
+                    Acknowledgements
+                </h3> -->
+                <!-- <p class="text-justify"> -->
+                <!-- We would like to thank Arthur Brussee, Ricardo Martin-Brualla, Rick Szeliski, Peter Hedman, Jason Baldridge, and Angjoo Kanazawa for their valuable contributions in discussing the project and reviewing the manuscript, and Zhicheng Wang for setting up some of the data loaders necessary for our diffusion model training pipeline. We are grateful to Randy Persaud and Henna Nandwani for infrastructure support. -->
+                    <!-- <br><br> -->
+                <!-- The website template was borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>. -->
+                <!-- </p> -->
+            </div>
+        </div>
+    </div>
+</body>
+</html>
