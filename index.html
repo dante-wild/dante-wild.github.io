@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>XScale-NVS</title>
+    <title>DANTE-W</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,9 +32,178 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
     <link rel="stylesheet" href="css/app.css">
-	<link rel="stylesheet" href="css/fontawesome.all.min.css">
-	<link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+		<link rel="stylesheet" href="css/fontawesome.all.min.css">
+		<link rel="stylesheet"
+	        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            width: 100%;
+            background: #fff;
+        }
+
+        .teaser-hero {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100svh;
+            overflow: hidden;
+            color: #fff;
+            background: #080808;
+        }
+
+        .teaser-hero video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .teaser-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.18) 45%, rgba(0, 0, 0, 0.62) 100%);
+            pointer-events: none;
+        }
+
+        .teaser-hero-content {
+            position: relative;
+            z-index: 1;
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 72px 28px 80px;
+            text-align: center;
+            text-shadow: 0 2px 22px rgba(0, 0, 0, 0.75);
+        }
+
+        .teaser-hero-title {
+            max-width: 1120px;
+            margin: 0;
+            font-size: 52px;
+            line-height: 1.12;
+            font-weight: 700;
+            letter-spacing: 0;
+        }
+
+        .teaser-hero-title span {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 72px;
+            line-height: 1;
+        }
+
+        .teaser-hero-venue {
+            margin: 22px 0 0;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .teaser-hero-authors {
+            max-width: 860px;
+            margin: 26px 0 0;
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px 22px;
+        }
+
+        .teaser-hero-authors li,
+        .teaser-hero-affiliation {
+            font-size: 18px;
+        }
+
+        .teaser-hero-authors a {
+            color: #fff;
+            font-size: inherit;
+            text-decoration: none;
+        }
+
+        .teaser-hero-authors a:hover,
+        .teaser-hero-authors a:focus {
+            color: #f6d27d;
+        }
+
+        .teaser-hero-affiliation {
+            margin-top: 16px;
+        }
+
+        .teaser-scroll-cue {
+            position: absolute;
+            z-index: 2;
+            left: 50%;
+            bottom: 26px;
+            width: 42px;
+            height: 42px;
+            transform: translateX(-50%);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            border-radius: 50%;
+            color: #fff;
+            font-size: 26px;
+            line-height: 38px;
+            text-align: center;
+            text-decoration: none;
+            background: rgba(0, 0, 0, 0.18);
+        }
+
+        .teaser-scroll-cue:hover,
+        .teaser-scroll-cue:focus {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.34);
+        }
+
+        #main {
+            padding: 5% 5% 0;
+        }
+
+        @media (max-width: 767px) {
+            .teaser-hero-content {
+                padding: 56px 18px 74px;
+            }
+
+            .teaser-hero-title {
+                font-size: 34px;
+            }
+
+            .teaser-hero-title span {
+                font-size: 44px;
+            }
+
+            .teaser-hero-venue {
+                font-size: 17px;
+            }
+
+            .teaser-hero-authors {
+                gap: 8px 14px;
+            }
+
+            .teaser-hero-authors li,
+            .teaser-hero-affiliation {
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .teaser-hero-title {
+                font-size: 28px;
+            }
+
+            .teaser-hero-title span {
+                font-size: 38px;
+            }
+        }
+    </style>
 
 
 	<!-- Google tag (gtag.js) -->
@@ -61,63 +230,31 @@
 
 </head>
 
-<body style="padding: 5%; width: 100%">
+<body>
+    <section class="teaser-hero" aria-label="DANTE-W teaser video">
+        <video autoplay loop muted playsinline preload="auto">
+            <source src="videos/teaser/teaser.mp4" type="video/mp4">
+        </video>
+        <div class="teaser-hero-content">
+            <h1 class="teaser-hero-title">
+                <span>DANTE-W</span>
+                Diffuse Albedo Neural Texturing in the Wild
+            </h1>
+            <p class="teaser-hero-venue">ECCV 2026</p>
+            <ul class="teaser-hero-authors">
+                <li><a href="">Guangyu Wang</a><sup>1</sup></li>
+                <li><a href="">Jinzhi Zhang</a><sup>1</sup></li>
+                <li><a href="">Fan Wang</a><sup>2</sup></li>
+                <li><a href="https://rqhuang88.github.io/">Ruqi Huang</a><sup>1</sup></li>
+                <li><a href="http://www.luvision.net/">Lu Fang</a><sup>1</sup></li>
+            </ul>
+            <p class="teaser-hero-affiliation"><sup>1</sup>Tsinghua University, &nbsp; <sup>2</sup>Alibaba Group</p>
+        </div>
+        <a class="teaser-scroll-cue" href="#main" aria-label="Continue to page content">&#8595;</a>
+    </section>
+
     <div class="container-lg text-center" style="max-width: 1500px; margin: auto;" id="main">
     <!-- <div class="container" id="main"> -->
-        <div class="row">
-            <h2 class="col-md-12 text-center">
-                💠<b>DANTE-W</b>: Diffuse Albedo Neural Texturing in the Wild</br> 
-                <small>
-                    ECCV 2026
-                </small>
-            </h2>
-        </div>
-        <div class="row text-center">
-<div class="col-md-3">
-    </div>
-            <div class="col-md-6 text-center">
-                <ul class="list-inline">
-                    <li>
-                        <a href="">
-                            Guangyu Wang
-                        </a><sup>1</sup>
-                    </li>
-                    <li>
-                        <a href="">
-                            Jinzhi Zhang
-                        </a><sup>1</sup>
-                    </li>
-                    <li>
-                        <a href="">
-                            Fan Wang
-                        </a><sup>2</sup>
-                    </li>
-                    <li>
-                        <a href="https://rqhuang88.github.io/">
-                            Ruqi Huang
-                        </a><sup>1</sup>
-                    </li>
-                    <wbr>
-                    <li>
-                        <a href="http://www.luvision.net/">
-                            Lu Fang
-                        </a><sup>1</sup>
-                    </li>
-                    <!-- </br>Google -->
-                </ul>
-            </div>
-<div class="col-md-3">
-    </div>
-            <div class="col-md-12 text-center">
-                <sup>1</sup>Tsinghua University, &nbsp <sup>2</sup>Alibaba Group
-
-            </div>
-            <!-- <div class="col-md-12 text-center">
-                * equal contribution
-            </div> -->
-            </div>
-
-
             <div class="row text-center">
 					
 			    <span class="link-block">
