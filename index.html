@@ -172,33 +172,34 @@
             max-width: 1120px;
             margin: 0;
             font-family: var(--display);
-            font-size: clamp(42px, 5.2vw, 66px);
-            line-height: 1.06;
+            font-size: clamp(30px, 3.8vw, 46px);
+            line-height: 1.08;
             font-weight: var(--title-weight);
             letter-spacing: 0;
+            white-space: nowrap;
         }
 
         .teaser-hero-title span {
             display: block;
-            margin-bottom: 14px;
+            margin-bottom: 10px;
             font-family: var(--display);
-            font-size: clamp(76px, 11vw, 136px);
-            line-height: 0.88;
+            font-size: inherit;
+            line-height: inherit;
             font-weight: var(--title-weight);
             letter-spacing: 0;
             text-transform: none;
         }
 
         .teaser-hero-venue {
-            margin: 24px 0 0;
-            padding: 7px 12px;
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            border-radius: 999px;
-            background: rgba(255, 255, 255, 0.08);
-            font-family: var(--sans);
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.08em;
+            margin: 20px 0 0;
+            padding: 0;
+            border: 0;
+            background: transparent;
+            font-family: var(--display);
+            font-size: clamp(22px, 2.4vw, 30px);
+            font-weight: var(--title-weight);
+            letter-spacing: 0;
+            line-height: 1;
             text-transform: uppercase;
         }
 
@@ -217,7 +218,7 @@
         .teaser-hero-affiliation {
             color: rgba(255, 255, 255, 0.88);
             font-family: var(--sans);
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .teaser-hero-authors a {
@@ -240,7 +241,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin-top: 24px;
+            margin-top: 22px;
         }
 
         .hero-button,
@@ -251,24 +252,26 @@
             gap: 9px;
             min-height: 44px;
             padding: 0 18px;
-            border: 1px solid rgba(255, 255, 255, 0.34);
+            border: 0;
             border-radius: 999px;
-            color: #111;
-            background: rgba(255, 255, 255, 0.9);
-            box-shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.24), 0 14px 36px rgba(0, 0, 0, 0.18);
             font-family: var(--sans);
             font-size: 14px;
-            font-weight: 700;
+            font-weight: 600;
             text-decoration: none;
             text-shadow: none;
-            transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            transition: transform 180ms ease, background 180ms ease, box-shadow 180ms ease;
         }
 
         .hero-button:hover,
         .hero-button:focus {
-            color: #111;
-            border-color: rgba(255, 255, 255, 0.75);
-            background: #fff;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.18);
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42), 0 16px 40px rgba(0, 0, 0, 0.22);
             transform: translateY(-2px);
         }
 
@@ -547,17 +550,17 @@
             }
 
             .teaser-hero-title {
-                font-size: 36px;
-                line-height: 1.04;
+                font-size: 34px;
+                line-height: 1.08;
+                white-space: normal;
             }
 
             .teaser-hero-title span {
-                margin-bottom: 10px;
-                font-size: 66px;
+                margin-bottom: 8px;
             }
 
             .teaser-hero-venue {
-                font-size: 12px;
+                font-size: 22px;
             }
 
             .teaser-hero-authors {
@@ -566,7 +569,7 @@
 
             .teaser-hero-authors li,
             .teaser-hero-affiliation {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .page-shell {
@@ -600,10 +603,6 @@
         @media (max-width: 420px) {
             .teaser-hero-title {
                 font-size: 30px;
-            }
-
-            .teaser-hero-title span {
-                font-size: 54px;
             }
 
             .section-heading {
@@ -684,7 +683,7 @@
                     <span>arXiv</span>
                 </a>
                 <a class="hero-button" href="https://github.com/THU-luvision/XScale-NVS">
-                    <span class="icon"><i class="fa-solid fa-square-terminal"></i></span>
+                    <span class="icon"><i class="fa-brands fa-github"></i></span>
                     <span>Code</span>
                 </a>
             </div>
