@@ -77,63 +77,6 @@
             background: #080808;
         }
 
-        .site-nav {
-            position: absolute;
-            z-index: 3;
-            top: 22px;
-            left: 50%;
-            width: min(1180px, calc(100% - 40px));
-            min-height: 52px;
-            transform: translateX(-50%);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 18px;
-            padding: 8px 10px 8px 18px;
-            border: 1px solid rgba(255, 255, 255, 0.26);
-            border-radius: 999px;
-            background: rgba(11, 12, 12, 0.26);
-            box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-        }
-
-        .site-brand,
-        .site-nav a {
-            color: #fff;
-            font-family: var(--sans);
-            font-size: 13px;
-            text-decoration: none;
-            text-shadow: 0 1px 12px rgba(0, 0, 0, 0.32);
-        }
-
-        .site-brand {
-            font-weight: 700;
-        }
-
-        .site-nav-links {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .site-nav-links a {
-            padding: 8px 12px;
-            border-radius: 999px;
-            transition: background 180ms ease, color 180ms ease;
-        }
-
-        .site-nav-links a:hover,
-        .site-nav-links a:focus {
-            color: #111;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .site-nav-cta {
-            color: #111 !important;
-            background: rgba(255, 255, 255, 0.92);
-        }
-
         .teaser-hero video {
             position: absolute;
             inset: 0;
@@ -173,7 +116,7 @@
             max-width: 100%;
             margin: 0;
             font-family: var(--display);
-            font-size: clamp(40px, 4.55vw, 78px);
+            font-size: clamp(38px, 4.35vw, 74px);
             line-height: 1.08;
             font-weight: var(--title-weight);
             letter-spacing: 0;
@@ -182,7 +125,7 @@
 
         .teaser-hero-title span {
             display: block;
-            margin-bottom: 10px;
+            margin-bottom: 13px;
             font-family: var(--display);
             font-size: inherit;
             line-height: inherit;
@@ -192,7 +135,7 @@
         }
 
         .teaser-hero-venue {
-            margin: 20px 0 0;
+            margin: 26px 0 0;
             padding: 0;
             border: 0;
             background: transparent;
@@ -207,13 +150,13 @@
 
         .teaser-hero-authors {
             max-width: 900px;
-            margin: 24px 0 0;
+            margin: 30px 0 0;
             padding: 0;
             list-style: none;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 9px 20px;
+            gap: 11px 24px;
         }
 
         .teaser-hero-authors li,
@@ -235,7 +178,7 @@
         }
 
         .teaser-hero-affiliation {
-            margin: 12px 0 0;
+            margin: 16px 0 0;
         }
 
         .hero-actions {
@@ -243,7 +186,7 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 12px;
-            margin-top: 22px;
+            margin-top: 28px;
         }
 
         .hero-button,
@@ -537,16 +480,6 @@
         }
 
         @media (max-width: 767px) {
-            .site-nav {
-                top: 14px;
-                width: calc(100% - 28px);
-                padding-left: 16px;
-            }
-
-            .site-nav-links a:not(.site-nav-cta) {
-                display: none;
-            }
-
             .teaser-hero-content {
                 padding: 112px 18px 82px;
             }
@@ -652,16 +585,6 @@
 
 <body>
     <section class="teaser-hero" aria-label="DANTE-W teaser video">
-        <nav class="site-nav" aria-label="Primary navigation">
-            <a class="site-brand" href="#">DANTE-W</a>
-            <div class="site-nav-links">
-                <a href="#demos">Demos</a>
-                <a href="#abstract">Abstract</a>
-                <a href="#method">Method</a>
-                <a href="#dataset">Dataset</a>
-                <a class="site-nav-cta" href="https://arxiv.org/abs/2403.19517">arXiv</a>
-            </div>
-        </nav>
         <video autoplay loop muted playsinline preload="auto">
             <source src="videos/teaser/teaser.mp4" type="video/mp4">
         </video>
@@ -673,12 +596,11 @@
             <p class="teaser-hero-venue">ECCV 2026</p>
             <ul class="teaser-hero-authors">
                 <li><a href="">Guangyu Wang</a><sup>1</sup></li>
-                <li><a href="">Jinzhi Zhang</a><sup>1</sup></li>
-                <li><a href="">Fan Wang</a><sup>2</sup></li>
+                <li><a href="">Tianheng Lu</a><sup>1</sup></li>
                 <li><a href="https://rqhuang88.github.io/">Ruqi Huang</a><sup>1</sup></li>
                 <li><a href="http://www.luvision.net/">Lu Fang</a><sup>1</sup></li>
             </ul>
-            <p class="teaser-hero-affiliation"><sup>1</sup>Tsinghua University, &nbsp; <sup>2</sup>Alibaba Group</p>
+            <p class="teaser-hero-affiliation"><sup>1</sup>Tsinghua University</p>
             <div class="hero-actions" aria-label="Project links">
                 <a class="hero-button" href="https://arxiv.org/abs/2403.19517">
                     <span class="icon"><i class="ai ai-arxiv"></i></span>
