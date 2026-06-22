@@ -310,6 +310,33 @@
             align-items: stretch;
         }
 
+        .motivation-section {
+            text-align: center;
+        }
+
+        .motivation-section .section-heading {
+            max-width: 1120px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .motivation-media {
+            display: grid;
+            justify-items: center;
+            gap: 32px;
+            margin-top: 36px;
+        }
+
+        .motivation-media img,
+        .motivation-media video {
+            display: block;
+            width: min(100%, 1120px);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper-strong);
+            box-shadow: var(--shadow);
+        }
+
         .editorial-card,
         .media-card,
         .image-panel,
@@ -617,32 +644,14 @@
 
     <main class="site-page" id="main">
         <div class="page-shell">
-            <section class="paper-section intro-grid reveal" id="abstract">
-                <article class="editorial-card">
-                    <p class="section-label">Abstract</p>
-                    <h2 class="section-heading">Neural texturing for detailed scenes in the wild.</h2>
-                    <p class="section-copy">
-                        We propose XScale-NVS for high-fidelity cross-scale novel view synthesis of real-world large-scale scenes. Existing scene representations have limitations in capturing cross-scale details. Representations based on explicit surface suffer from discretization resolution or UV distortion, while implicit volumetric representations lack scalability for large scenes due to the dispersed weight distribution and surface ambiguity.
-                    </p>
-                    <p class="section-copy">
-                        Our hash featurized manifold couples a surface-focused representation with deferred neural rendering, concentrating features on a 2D manifold to represent highly detailed contents independent of discretization resolution.
-                    </p>
-                </article>
-
-                <aside class="stat-grid" aria-label="Project highlights">
-                    <div class="stat-card">
-                        <strong>Cross-scale</strong>
-                        <span>High-fidelity rendering from broad structures to fine texture.</span>
-                    </div>
-                    <div class="stat-card">
-                        <strong>Surface-first</strong>
-                        <span>Hash features are concentrated on manifolds instead of dispersed through volume samples.</span>
-                    </div>
-                    <div class="stat-card">
-                        <strong>GigaNVS</strong>
-                        <span>A real-shot benchmark for square-kilometer scenes with millimeter-level details.</span>
-                    </div>
-                </aside>
+            <section class="paper-section motivation-section reveal" id="abstract">
+                <h2 class="section-heading">Reason beyond pixel: disentangle base colour from lighting effects</h2>
+                <div class="motivation-media">
+                    <img src="img/motivate.jpg" alt="Motivation overview">
+                    <video autoplay loop muted playsinline controls preload="metadata">
+                        <source src="videos/teaser/relit.mp4" type="video/mp4">
+                    </video>
+                </div>
             </section>
 
             <section class="paper-section reveal" id="demos">
