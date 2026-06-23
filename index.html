@@ -382,7 +382,7 @@
             display: grid;
             justify-items: center;
             gap: 32px;
-            margin-top: 36px;
+            margin-top: 42px;
         }
 
         .motivation-media img,
@@ -400,12 +400,12 @@
         }
 
         .motivation-copy {
-            max-width: 1120px;
-            margin: 0;
+            max-width: 980px;
+            margin: 24px auto 0;
             color: var(--muted);
             font-family: var(--sans);
-            font-size: 16px;
-            line-height: 1.76;
+            font-size: 17px;
+            line-height: 1.72;
             text-align: left;
         }
 
@@ -736,12 +736,12 @@
         <div class="page-shell">
             <section class="paper-section motivation-section reveal" id="abstract">
                 <h2 class="section-heading">Reason beyond pixel: disentangle base colour from lighting effects</h2>
+                <p class="motivation-copy">Compared to vanilla mesh texturing with baked-in lighting effects (e.g., noon-time shading and strong roof-edge shadowing on this pavilion), our method effectively disentangles a 3D-consistent diffuse albedo texture with exceptional photorealism.</p>
                 <div class="motivation-media">
                     <img src="img/motivate.jpg" alt="Motivation overview">
                     <video autoplay loop muted playsinline controls preload="metadata">
                         <source src="videos/teaser/relit.mp4" type="video/mp4">
                     </video>
-                    <p class="motivation-copy">Compared to vanilla mesh texturing with baked-in lighting effects (e.g., noon-time shading and strong roof-edge shadowing on this pavilion), our method effectively disentangles a 3D-consistent diffuse albedo texture with exceptional photorealism.</p>
                 </div>
             </section>
 
