@@ -471,6 +471,27 @@
             margin-top: 0;
         }
 
+        .results-stack {
+            display: grid;
+            gap: 28px;
+            margin-top: 42px;
+        }
+
+        .results-stack img,
+        .results-stack video {
+            display: block;
+            width: 100%;
+            border-radius: 8px;
+            background: #111;
+            box-shadow: var(--shadow);
+        }
+
+        .results-video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+        }
+
         .editorial-card,
         .media-card,
         .image-panel,
@@ -674,6 +695,7 @@
 
             .intro-grid,
             .media-grid,
+            .results-video-grid,
             .wide-callout {
                 grid-template-columns: 1fr;
             }
@@ -839,6 +861,25 @@
                         <img class="method-image" src="img/pipeline.jpg" alt="Learning fine details by differentiating the spatial frequency of neural fields">
                         <p class="motivation-copy method-copy">We observe that real-world lighting effects manifest as lower frequencies compared to fine-grained albedo variations. Therefore, we represent diffuse albedo texture using a high-resolution 2D hash encoding and irradiance using a low-resolution 3D hash encoding. This explicit frequency-band discrepancy effectively facilitates the disentanglement between the two intrinsic components. We guide the low-frequency component of diffuse albedo with screen-space diffusion priors and recover fine-grained albedo details by neural rendering the raw observations.</p>
                     </article>
+                </div>
+            </section>
+
+            <section class="paper-section method-section reveal">
+                <p class="section-label">Results</p>
+                <h2 class="section-heading">Faithful, fine-grained, 3D-consistent albedo</h2>
+                <div class="results-stack">
+                    <img src="img/qualitative_wild.jpg" alt="Faithful, fine-grained, 3D-consistent albedo results">
+                    <div class="results-video-grid">
+                        <video autoplay loop muted playsinline controls preload="metadata">
+                            <source src="videos/teaser/box_dr.mp4" type="video/mp4">
+                        </video>
+                        <video autoplay loop muted playsinline controls preload="metadata">
+                            <source src="videos/teaser/gloves_dr.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <video autoplay loop muted playsinline controls preload="metadata">
+                        <source src="videos/teaser/ablation_int.mp4" type="video/mp4">
+                    </video>
                 </div>
             </section>
 
