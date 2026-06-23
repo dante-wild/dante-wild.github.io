@@ -427,6 +427,10 @@
             text-align: left;
         }
 
+        .method-section .section-label {
+            text-align: left;
+        }
+
         .issues-stack {
             display: grid;
             gap: 42px;
@@ -880,82 +884,6 @@
                         <source src="videos/teaser/ablation_int.mp4" type="video/mp4">
                     </video>
                 </div>
-            </section>
-
-            <section class="paper-section reveal" id="demos">
-                <p class="section-label">Demos</p>
-                <h2 class="section-heading">Move through light, structure, and scale.</h2>
-                <div class="media-grid">
-                    <article class="media-card">
-                        <div class="media-frame">
-                            <iframe src="https://www.youtube.com/embed/x06QnYyIiGQ?si=7xZHqTFi5mMwQViO" title="Neural rendering demo" allowfullscreen></iframe>
-                        </div>
-                        <div class="media-card-body">
-                            <h3>Neural Rendering the Tengwang Pavilion</h3>
-                            <p>Recommended viewing in 4K resolution to inspect the high-frequency details.</p>
-                        </div>
-                    </article>
-
-                    <article class="media-card">
-                        <div class="media-frame">
-                            <iframe src="https://www.youtube.com/embed/_MNgCd5zuWo?si=fwHxpSTEcgmc0rEL" title="Relighting demo" allowfullscreen></iframe>
-                        </div>
-                        <div class="media-card-body">
-                            <h3>Relit the Tengwang Pavilion</h3>
-                            <p>Relighting results highlight how the representation preserves geometry-aware appearance.</p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="paper-section reveal" id="method">
-                <p class="section-label">Method</p>
-                <h2 class="section-heading">Surface manifold unleashes volumetric hash encoding.</h2>
-                <div class="image-stack">
-                    <article class="image-panel">
-                        <img src="img/method.jpg" alt="Method overview diagram">
-                        <div class="image-panel-body">
-                            <h3>Clean features on the surface</h3>
-                            <p>
-                                UV-based featurizations can disorganize feature distribution, surface-based grids are limited by discretization, and volumetric featurizations disperse weights during volume rendering. Our method uses hash encoding with rasterization to propagate clean, multi-view consistent signals to surface features.
-                            </p>
-                        </div>
-                    </article>
-
-                    <article class="image-panel">
-                        <img src="img/teaser.png" alt="Cross-scale rendering teaser">
-                        <div class="image-panel-body">
-                            <h3>Cross-scale neural rendering</h3>
-                            <p>
-                                Hash featurized manifold better exploits unstructured capture viewpoints and scale variations, representing structural and textural details across different viewing scales.
-                            </p>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <section class="paper-section wide-callout reveal" id="dataset">
-                <img src="img/dataset.jpg" alt="GigaNVS dataset examples">
-                <div>
-                    <p class="section-label">Dataset</p>
-                    <h2 class="section-heading">The GigaNVS dataset is coming soon.</h2>
-                    <p>
-                        Characterized by real-shot, cross-scale, high-resolution imagery, GigaNVS captures millimeter-level details from scenes with square-kilometer-level areas.
-                    </p>
-                </div>
-            </section>
-
-            <section class="paper-section reveal">
-                <p class="section-label">Results</p>
-                <h2 class="section-heading">High-quality details remain visible when the viewpoint changes.</h2>
-                <article class="image-panel">
-                    <img src="img/cross_scale.jpg" alt="Cross-scale qualitative comparison">
-                    <div class="image-panel-body">
-                        <p>
-                            Compared to common neural scene representations, the manifold-centered representation keeps fine geometry and appearance details stable across scale changes. Please zoom in to inspect the quality.
-                        </p>
-                    </div>
-                </article>
             </section>
 
             <section class="paper-section reveal" id="citation">
