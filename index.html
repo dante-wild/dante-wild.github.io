@@ -280,7 +280,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.48);
+            background: rgba(0, 0, 0, 0.64);
         }
 
         .tldr-title {
@@ -292,9 +292,20 @@
             font-family: var(--display);
             font-size: clamp(25.92px, 2.808vw, 38.88px);
             font-weight: var(--title-weight);
-            line-height: 1.14;
+            line-height: 1.368;
             text-align: center;
             text-shadow: 0 3px 28px rgba(0, 0, 0, 0.82);
+        }
+
+        .tldr-kicker {
+            display: block;
+            margin-bottom: 12px;
+            font-size: 1.35em;
+            line-height: 1.1;
+        }
+
+        .tldr-copy {
+            display: block;
         }
 
         .site-page {
@@ -696,7 +707,11 @@
 
     <section class="tldr-screen" id="tldr" aria-label="TL;DR">
         <img src="img/tldr.png" alt="">
-        <h2 class="tldr-title">TL;DR: Traditional 3D reconstruction remains a de facto in industries, and this work proposes a plug-and-play diffuse albedo texturing method exploiting diffusion priors and neural rendering.</h2>
+        <h2 class="tldr-title">
+            <span class="tldr-kicker">TL;DR:</span>
+            <span class="tldr-copy">Traditional 3D reconstruction remains a de facto in industries, and this work proposes a plug-and-play</span>
+            <span class="tldr-copy">diffuse albedo texturing method exploiting diffusion priors and neural rendering.</span>
+        </h2>
     </section>
 
     <main class="site-page" id="main">
