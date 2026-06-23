@@ -255,6 +255,48 @@
             transform: translateX(-50%) translateY(3px);
         }
 
+        .tldr-screen {
+            position: relative;
+            min-height: 100vh;
+            min-height: 100svh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 72px 24px;
+            color: #fff;
+            background: #070707;
+        }
+
+        .tldr-screen img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tldr-screen::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.48);
+        }
+
+        .tldr-title {
+            position: relative;
+            z-index: 1;
+            max-width: 1120px;
+            margin: 0;
+            color: #fff;
+            font-family: var(--display);
+            font-size: clamp(25.92px, 2.808vw, 38.88px);
+            font-weight: var(--title-weight);
+            line-height: 1.14;
+            text-align: center;
+            text-shadow: 0 3px 28px rgba(0, 0, 0, 0.82);
+        }
+
         .site-page {
             background: var(--paper);
         }
@@ -649,7 +691,12 @@
                 </a>
             </div>
         </div>
-        <a class="teaser-scroll-cue" href="#main" aria-label="Continue to page content">&#8595;</a>
+        <a class="teaser-scroll-cue" href="#tldr" aria-label="Continue to page content">&#8595;</a>
+    </section>
+
+    <section class="tldr-screen" id="tldr" aria-label="TL;DR">
+        <img src="img/tldr.png" alt="">
+        <h2 class="tldr-title">TL;DR: Traditional 3D reconstruction remains a de facto in industries, and this work proposes a plug-and-play diffuse albedo texturing method exploiting diffusion priors and neural rendering.</h2>
     </section>
 
     <main class="site-page" id="main">
