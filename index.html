@@ -416,6 +416,7 @@
         .issues-section .section-heading {
             max-width: 1120px;
             margin: 0 auto;
+            font-size: clamp(25.92px, 2.808vw, 38.88px);
             text-align: center;
         }
 
@@ -446,8 +447,12 @@
             width: min(100%, 1120px);
             border: 1px solid var(--line);
             border-radius: 8px;
-            background: var(--paper-strong);
+            background: var(--paper);
             box-shadow: var(--shadow);
+        }
+
+        .issue-block img.issue-image-small {
+            width: min(100%, 560px);
         }
 
         .editorial-card,
@@ -795,7 +800,7 @@
                     </article>
                     <article class="issue-block">
                         <h3>inaccurate at details</h3>
-                        <img src="img/details.png" alt="Diffusion result inaccurate at details">
+                        <img class="issue-image-small" src="img/details.png" alt="Diffusion result inaccurate at details">
                     </article>
                 </div>
             </section>
