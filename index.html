@@ -409,6 +409,47 @@
             text-align: left;
         }
 
+        .issues-section {
+            text-align: center;
+        }
+
+        .issues-section .section-heading {
+            max-width: 1120px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .issues-stack {
+            display: grid;
+            gap: 42px;
+            margin-top: 42px;
+        }
+
+        .issue-block {
+            display: grid;
+            justify-items: center;
+            gap: 18px;
+        }
+
+        .issue-block h3 {
+            margin: 0;
+            color: var(--ink);
+            font-family: var(--display);
+            font-size: 29px;
+            font-weight: var(--title-weight);
+            line-height: 1.12;
+            text-align: center;
+        }
+
+        .issue-block img {
+            display: block;
+            width: min(100%, 1120px);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: var(--paper-strong);
+            box-shadow: var(--shadow);
+        }
+
         .editorial-card,
         .media-card,
         .image-panel,
@@ -742,6 +783,20 @@
                     <video autoplay loop muted playsinline controls preload="metadata">
                         <source src="videos/teaser/relit.mp4" type="video/mp4">
                     </video>
+                </div>
+            </section>
+
+            <section class="paper-section issues-section reveal">
+                <h2 class="section-heading">Issues of diffusion models</h2>
+                <div class="issues-stack">
+                    <article class="issue-block">
+                        <h3>3D inconsistent</h3>
+                        <img src="img/inconsistent.png" alt="3D inconsistent diffusion result">
+                    </article>
+                    <article class="issue-block">
+                        <h3>inaccurate at details</h3>
+                        <img src="img/details.png" alt="Diffusion result inaccurate at details">
+                    </article>
                 </div>
             </section>
 
