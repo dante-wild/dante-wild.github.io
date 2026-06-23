@@ -452,6 +452,23 @@
             width: min(100%, 840px);
         }
 
+        .method-kicker {
+            margin: 0 0 18px;
+            color: var(--ink);
+            font-family: var(--display);
+            font-size: clamp(38px, 4.35vw, 74px);
+            font-weight: var(--title-weight);
+            line-height: 1.08;
+            text-align: center;
+        }
+
+        .issue-block img.method-image {
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: #fff;
+            box-shadow: var(--shadow);
+        }
+
         .editorial-card,
         .media-card,
         .image-panel,
@@ -804,10 +821,11 @@
             </section>
 
             <section class="paper-section issues-section reveal">
+                <h2 class="method-kicker">Method</h2>
                 <h2 class="section-heading">Aggregate per-view diffusion outputs into a consistent neural texture</h2>
                 <div class="issues-stack">
                     <article class="issue-block">
-                        <img src="img/distillation.png" alt="Aggregate per-view diffusion outputs into a consistent neural texture">
+                        <img class="method-image" src="img/distillation.png" alt="Aggregate per-view diffusion outputs into a consistent neural texture">
                     </article>
                 </div>
             </section>
